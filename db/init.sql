@@ -3,6 +3,9 @@ GO
 
 USE samples
 
+SET NOCOUNT ON
+GO
+
 CREATE TABLE [dbo].[oauth_access_token](
     [token_id] [varchar](256) NOT NULL,
     [token] [varbinary](max) NULL,
@@ -11,12 +14,12 @@ CREATE TABLE [dbo].[oauth_access_token](
     [client_id] [varchar](256) NULL,
     [authentication] [varbinary](max) NULL,
     [refresh_token] [varchar](256) NULL
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
+    ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+    GO
 ALTER TABLE [dbo].[oauth_access_token] ADD PRIMARY KEY CLUSTERED
-(
+    (
     [token_id] ASC
-)
+    )
     GO
 ALTER TABLE [dbo].[oauth_access_token] ADD  DEFAULT (NULL) FOR [token_id]
     GO
@@ -43,8 +46,6 @@ CREATE TABLE [dbo].[oauth_client_details](
     [additional_information] [varchar](4096) NULL,
     [autoapprove] [varchar](255) NULL
     ) ON [PRIMARY]
-    GO
-    SET ANSI_PADDING ON
     GO
 ALTER TABLE [dbo].[oauth_client_details] ADD PRIMARY KEY CLUSTERED
     (
@@ -91,7 +92,7 @@ ALTER TABLE [dbo].[oauth_refresh_token] ADD PRIMARY KEY CLUSTERED
 -- insert data
 delete from oauth_client_details
 
-insert into oauth_client_details (client_id, client_secret, scope, authorized_grant_types, access_token_validity, refresh_token_validity, additional_information)
+    insert into oauth_client_details (client_id, client_secret, scope, authorized_grant_types, access_token_validity, refresh_token_validity, additional_information)
 values ('adminapp', '{bcrypt}$2a$10$EOs8VROb14e7ZnydvXECA.4LoIhPOoFHKvVF/iBZ/ker17Eocz4Vi', 'read,write,admin', 'authorization_code,password,refresh_token,implicit', 9000, 60000, '{}')
 
 -- USERS
@@ -117,7 +118,7 @@ CREATE TABLE [dbo].[users](
 ALTER TABLE [dbo].[users] ADD  CONSTRAINT [PK_USERS] PRIMARY KEY CLUSTERED
     (
     [ID] ASC
-)
+    )
     GO
 ALTER TABLE [dbo].[users] ADD  DEFAULT (getdate()) FOR [D_BEGIN]
     GO
@@ -250,6 +251,3 @@ ALTER TABLE [dbo].[user_roles]  WITH CHECK ADD  CONSTRAINT [fk_user_roles_2] FOR
 GO
 ALTER TABLE [dbo].[user_roles] CHECK CONSTRAINT [fk_user_roles_2]
     GO
-
-
-
