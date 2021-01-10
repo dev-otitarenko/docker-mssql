@@ -1,1 +1,1 @@
-# docker-mssql-sampledb
+# Sample database for examples
