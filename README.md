@@ -14,10 +14,10 @@ services:
     restart: always
     environment:
       ACCEPT_EULA: Y
-      SA_PASSWORD: Passw0rd2
+      SA_PASSWORD: <your password>
     ports:
       - 1433:1433
-    container_name: sampledb
+    container_name: <your host name>
     volumes:
       - ./docker/samples-db/data:/var/opt/mssql
 ```
@@ -32,6 +32,12 @@ docker-compose -f ./docker-compose.yml up -d
 If you have some issues with the container, please check log or run using following command
 ```sh
 docker-compose -f ./docker-compose.yml up
+```
+
+# Checking container
+
+```sh
+docker stats
 ```
 
 Happy coding
