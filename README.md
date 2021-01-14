@@ -4,7 +4,7 @@ This is the docker image with MS SQL database for mostly all my samples. You can
 
 # Checking parameters
 
-Before running the docker container with DB, please change parameters **(SA_PASSWORD, ports, container_name)** in (docker-compose.yml)[https://github.com/dev-otitarenko/docker-mssql-sampledb/blob/main/docker-compose.yml] suitable for you:
+Before running the docker container with DB, please change parameters **(SA_PASSWORD, ports, container_name)** in [docker-compose.yml](https://github.com/dev-otitarenko/docker-mssql-sampledb/blob/main/docker-compose.yml) suitable for you:
 ```sh
 version: '2'
 services:
