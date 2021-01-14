@@ -1,10 +1,10 @@
 # Sample database for examples
 
-This is the docker image with MS SQL database for mostly all my samples. You can find script for creation all tables 
+This is the docker image with MS SQL database for mostly all my samples. You can find script for creation all tables [here](https://github.com/dev-otitarenko/docker-mssql-sampledb/blob/main/db/init.sql) 
 
 # Checking parameters
 
-Before running the docker container with DB, please change parameters in docker-compose.yml suitable for you:
+Before running the docker container with DB, please change parameters **(SA_PASSWORD, ports, container_name)** in docker-compose.yml suitable for you:
 ```sh
 version: '2'
 services:
@@ -14,10 +14,10 @@ services:
     restart: always
     environment:
       ACCEPT_EULA: Y
-      **SA_PASSWORD: Passw0rd2**
+      SA_PASSWORD: Passw0rd2
     ports:
       - 1433:1433
-    **container_name: sampledb**
+    container_name: sampledb
     volumes:
       - ./docker/samples-db/data:/var/opt/mssql
 ```
