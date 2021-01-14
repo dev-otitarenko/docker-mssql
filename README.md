@@ -17,7 +17,7 @@ services:
       SA_PASSWORD: <your password>
     ports:
       - 1433:1433
-    container_name: <your host name>
+    container_name: <name for container with sample db>
     volumes:
       - ./docker/samples-db/data:/var/opt/mssql
 ```
