@@ -28,6 +28,10 @@ services:
 docker-compose -f ./docker-compose.yml build
 docker-compose -f ./docker-compose.yml up -d
 ```
+or
+```sh
+docker-compose -f ./docker-compose.yml up -d --build
+```
 
 If you have some issues in the container, please check log or run using following command
 ```sh
