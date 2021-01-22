@@ -15,6 +15,7 @@ services:
     environment:
       ACCEPT_EULA: Y
       SA_PASSWORD: <your password>
+      DB: <database name>
     ports:
       - 1433:1433
     container_name: <name for container with sample db>
